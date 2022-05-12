@@ -1,0 +1,213 @@
+### POST Checkout - Error - Without customer
+POST http://localhost:3000
+Content-Type: application/json
+
+{
+    "line_items" : [
+        {
+            "price": "10.00",
+            "quantity": 23
+        }
+    ],
+    "mode": "payment",
+    "success_url": "url",
+    "cancel_url": "url"      
+}
+
+### POST Checkout - OK
+POST http://localhost:3000
+Content-Type: application/json
+api-v-q: 1.0.1
+
+{
+    "customer":"c1",
+    "line_items" : [
+        {
+            "price": "10.00",
+            "quantity": 23
+        }
+    ],
+    "mode": "payment",
+    "success_url": "url",
+    "cancel_url": "url"      
+}
+
+### POST Checkout - OK
+POST http://localhost:3000
+Content-Type: application/json
+api-v-q: 2.0.1
+
+{
+    "customer":"c1",
+    "line_items" : [
+        {
+            "price": "10.00",
+            "quantity": 23
+        }
+    ],
+    "mode": "payment",
+    "success_url": "url",
+    "cancel_url": "url"      
+}
+
+
+### POST Checkout - Secutiry Vulnerability - Inject data
+POST http://localhost:3000
+Content-Type: application/json
+
+{
+    "payment_intent_data": {
+        "setup_future_usage": "off_session"
+    },    
+    "customer":"c1",
+    "line_items" : [
+        {
+            "price": "10.00",
+            "quantity": 23
+        }
+    ],
+    "mode": "payment",
+    "success_url": "url",
+    "cancel_url": "url"      
+}
+
+
+
+### POST Checkout - Error - Without customer
+POST http://localhost:3000
+Content-Type: application/json
+{
+    "line_items" : [
+        {
+            "price": "10.00",
+            "quantity": 23
+        }
+    ],
+    "mode": "payment",
+    "success_url": "url",
+    "cancel_url": "url"      
+}
+### POST Checkout - OK
+POST http://localhost:3000
+Content-Type: application/json
+api-v-q: 1.0.1
+{
+    "customer":"c1",
+    "line_items" : [
+        {
+            "price": "10.00",
+            "quantity": 23
+        }
+    ],
+    "mode": "payment",
+    "success_url": "url",
+    "cancel_url": "url"      
+}
+
+
+### POST Checkout - OK
+POST http://localhost:3000
+Content-Type: application/json
+api-v-q: 2.0.1
+
+{
+"customer":"cus_LfPbUwPE7NtKaS",
+"line_items": [{
+  "price_data": {
+       "currency": "brl",
+          "product_data": {
+            "name": "teste"
+          },
+          "unit_amount": 4000
+        },
+        "quantity": 1
+      }],
+     "mode": "payment",
+    "success_url": "https://34331cacd9.to.intercept.rest",
+    "cancel_url": "https://34331cacd9.to.intercept.rest"  
+}
+
+### POST Checkout - Secutiry Vulnerability - Inject data
+POST http://localhost:3000
+Content-Type: application/json
+api-v-q: 2.0.1
+{
+    "customer":"cus_LfMWZyl6Sa4s54",
+    "payment_intent_data": {
+        "setup_future_usage": "off_session"
+    }, 
+    "line_items": [{
+    "price_data": {
+    "currency": "brl",
+        "product_data": {
+        "name": "teste"
+        },
+        "unit_amount": 4000
+    },
+    "quantity": 1
+    }],
+    "mode": "payment",
+    "success_url": "https://stripe.com/docs/payments",
+    "cancel_url": "https://stripe.com/docs"  
+}
+
+
+### POST Checkout - OK
+POST http://localhost:3000
+Content-Type: application/json
+api-v-q: 2.0.1
+Authorization: Basic miguelangelo.rocha+insta-m-place-client001@gmail.com Q48p4wBA+7H7Evpq
+
+{
+"customer":"cus_LfPbUwPE7NtKaS",
+"line_items": [{
+  "price_data": {
+       "currency": "brl",
+          "product_data": {
+            "name": "teste"
+          },
+          "unit_amount": 4000
+        },
+        "quantity": 1
+      }],
+     "mode": "payment",
+    "success_url": "https://34331cacd9.to.intercept.rest",
+    "cancel_url": "https://34331cacd9.to.intercept.rest"  
+}
+
+curl --request POST --url http://localhost:3000/ --header 'api-v-q: 2.0.1' --header 'authorization: Basic bWlndWVsYW5nZWxvLnJvY2hhK2luc3RhLW0tcGxhY2UtY2xpZW50MDAxQGdtYWlsLmNvbTpRNDhwNHdCQSs3SDdFdnBx' --header 'content-type: application/json' --header 'user-agent: vscode-restclient' --data '{"customer":"cus_LfPbUwPE7NtKaS","line_items": [{"price_data": {"currency": "brl","product_data": {"name": "teste"},"unit_amount": 4000},"quantity": 1}],"mode": "payment","success_url": "https://34331cacd9.to.intercept.rest","cancel_url": "https://34331cacd9.to.intercept.rest"}Q48p4wBA+7H7Evpq'
+
+###
+curl --request POST \
+  --url https://miguelangelorocha.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"RZCaubDGm9pZlQOXlX80FqPFDdHfGIN4","client_secret":"41FK6xny4flFIFsQ0xpLOnjzjdkCvAWnP8W2-ez7OV9hilfI8A9V0C-sAlhhPvQR","audience":"https://miguelangelorocha.auth0.com/api/v2/","grant_type":"client_credentials"}'
+
+
+
+### POST Checkout - Secutiry Vulnerability - Inject data
+POST http://localhost:3000
+Content-Type: application/json
+api-v-q: 1.0.0
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5VSkZOVVEyTjBSRk5UVTFNamswTmpRMk5UUkdNamRHTWtSQ1FVWkVSRE5FTUVaRk5VVkJNQSJ9.eyJpc3MiOiJodHRwczovL21pZ3VlbGFuZ2Vsb3JvY2hhLmF1dGgwLmNvbS8iLCJzdWIiOiJSWkNhdWJER205cFpsUU9YbFg4MEZxUEZEZEhmR0lONEBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9taWd1ZWxhbmdlbG9yb2NoYS5hdXRoMC5jb20vYXBpL3YyLyIsImlhdCI6MTY1MjIzNjQwMywiZXhwIjoxNjUyMzIyODAzLCJhenAiOiJSWkNhdWJER205cFpsUU9YbFg4MEZxUEZEZEhmR0lONCIsInNjb3BlIjoicmVhZDp1c2VycyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.Sev52s9K6uhRc7halWn0j6E7j82dwOnRKLo1Y-nl_KVTSyeVhIm02ZL540ZuovehSsBDCASZb-vBDHbCjr9RpgKjnNs4TOQ5TVqWCHVklwLzOAwOXPuz9kBz0HM7vMzVoXowthqi3cL_Fg3bbDJ4DlNEIxXIO5jMbKnWHsvcePN0xUCGx2pUjyszrerI1pJmqJ6gvfvlyJFyX_uAjf9lfDosN9shNgWgkkZAaQMTCmXuyurOYOfMVq3J6aIPbDz-N_bMd7qrm1n8uzNU5SbYecFcvjN5C674B1I25tQ-NJ5jgX2xdZjqJdVoCvY4pGjSSAVZFO5SW2_Dl1JnkvdmDQ
+
+
+{
+    "customer":"cus_LfMWZyl6Sa4s54",
+    "payment_intent_data": {
+        "setup_future_usage": "off_session"
+    }, 
+    "line_items": [{
+    "price_data": {
+    "currency": "brl",
+        "product_data": {
+        "name": "teste"
+        },
+        "unit_amount": 4000
+    },
+    "quantity": 1
+    }],
+    "mode": "payment",
+    "success_url": "https://stripe.com/docs/payments",
+    "cancel_url": "https://stripe.com/docs"  
+}
